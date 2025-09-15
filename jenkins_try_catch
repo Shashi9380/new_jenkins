@@ -10,7 +10,17 @@ pipeline{
                 }
                 stage('2nd'){
                     steps{
-                      sh 'exit (1) '
+                        script {
+                          try {
+                            sh 'exit (1) '
+                          } catch (error) {
+                             echo "caught an error: {e}"
+                          }finally {
+                             echo "Finally block always runs"
+                          }
+                        
+                         
+                       }
                     }
                 }
             }
