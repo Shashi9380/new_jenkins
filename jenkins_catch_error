@@ -1,4 +1,4 @@
-pipeline{
+pipeline {
     agent any 
     stages{
         stage('parallel'){
@@ -12,6 +12,7 @@ pipeline{
                     steps{
                         catchError(stageResult: 'FAILURE', buildResult: 'SUCCESS') {
                               sh 'echo hi'
+                        }
                     }
                 }
             }
