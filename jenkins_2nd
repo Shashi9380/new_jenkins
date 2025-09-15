@@ -21,19 +21,19 @@ pipeline {
         }
         stage('parallel') {
             parallel {
-                stage(){
+                stage('parallel_1st'){
                     steps{
                       echo 'file1'
                     }
                 }
-                 stage(){
+                 stage('parallel_2nd'){
                     steps{
                          echo 'file2'
                     }
                 }
             }
         }
-            stage('1st') {
+            stage('3st') {
             steps {
               sh '''
               ls -lrt
