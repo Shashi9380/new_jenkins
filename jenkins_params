@@ -9,9 +9,9 @@ pipleine {
         stage('1st') {
             steps{
                script{
-                if [[ ${params.choose1} == dev ]]; then 
+                if [[ ${params.choose1} -eq dev ]]; then 
                  echo "this is dev "
-                elif [[ ${params.choose1} == prod ]]; then
+                elif [[ ${params.choose1} -eq prod ]]; then
                  echo " this is preprod"
                  else 
                     echo " this is prod"
