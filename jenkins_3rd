@@ -6,7 +6,7 @@ pipeline {
         daysToKeepStr: '', numToKeepStr: '5')
     }
     environment {
-        ENV= prod
+        ENV1= prod
         APP_NAME= frontend
         GIT_BRANCH= main
         GIT_CREDENTIALS= 'Shashi-ubuntu-ec2-pem-key'
@@ -25,12 +25,12 @@ pipeline {
 
         stage('test'){
             steps{
-                sh ' ${env.ENV}'
+                sh ' ${env.ENV1}'
                 sh """
                  ${env.APP_NAME}
                 """
                 sh '''
-                 $ENV
+                 $ENV1
                  $APP_NAME
                  $GIT_BRANCH
                  $GIT_CREDENTIALS
