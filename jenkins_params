@@ -32,7 +32,7 @@ pipeline {
                 '''
             }
         }
-         stage('2nd') {
+         stage('3rd') {
             steps {
                 script {
                     if (params.choose1 == "dev") {
