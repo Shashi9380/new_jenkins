@@ -10,15 +10,8 @@ pipeline{
                 }
                 stage('2nd'){
                     steps{
-                        script {
-                          try {
-                            sh 'shashi'
-                          } catch (error) {
-                             echo "caught an error: ${error}"
-                          }
-                        
-                         
-                       }
+                        catchError(stageResult: 'FAILURE', buildResult: 'SUCCESS') {
+                              sh 'echo hi'
                     }
                 }
             }
