@@ -14,7 +14,7 @@ pipeline{
                           try {
                             sh 'exit (1) '
                           } catch (error) {
-                             echo "caught an error: {e}"
+                             echo "caught an error: ${e}"
                           }finally {
                              echo "Finally block always runs"
                           }
