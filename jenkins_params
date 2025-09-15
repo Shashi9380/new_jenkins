@@ -32,5 +32,19 @@ pipeline {
                 '''
             }
         }
+         stage('2nd') {
+            steps {
+                script {
+                    if (params.choose1 == "dev") {
+                         echo "This is dev"
+                    } else if (params.choose1 == "preprod") {
+                        echo "This is preprod"
+                    } else {
+                        echo "This is prod"
+                    }
+                }
+
+            }
+        }
     }
 }
