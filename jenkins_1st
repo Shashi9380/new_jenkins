@@ -16,6 +16,9 @@ pipeline{
         
        }
       stage('3rd') {
+          agent{
+            label 'slave1'
+          }
           steps{
             sh "echo 1st"
           }
