@@ -1,30 +1,34 @@
-pipleine {
+pipeline {
     agent any
-   parameters {
-       choice choices: ['dev', 'preprod', 'prod'], description: 'choose any one', name: 'choose1'
-       booleanParam description: 'please check the Mark', name: 'depend_ENV'
-        string defaultValue: 'none', description: 'please write name', name: 'NAME'
+
+    parameters {
+        choice(name: 'choose1', choices: ['dev', 'preprod', 'prod'], description: 'choose any one')
+        booleanParam(name: 'depend_ENV', description: 'please check the Mark')
+        string(name: 'NAME', defaultValue: 'none', description: 'please write name')
     }
-    stages{
+
+    stages {
         stage('1st') {
-            steps{
-               script{
-                if [[ ${params.choose1} -eq dev ]]; then 
-                 echo "this is dev "
-                elif [[ ${params.choose1} -eq prod ]]; then
-                 echo " this is preprod"
-                 else 
-                    echo " this is prod"
-                fi
-               }
+            steps {
+                // Bash if-elif-else
+                sh '''
+                  if [[ "$choose1" == "dev" ]]; then
+                      echo "This is dev"
+                  elif [[ "$choose1" == "preprod" ]]; then
+                      echo "This is preprod"
+                  else
+                      echo "This is prod"
+                  fi
+                '''
             }
         }
-        stage('2nd'){
-            steps{
+
+        stage('2nd') {
+            steps {
                 sh '''
-                echo $choose1
-                echo $depend_ENV
-                echo $NAME
+                  echo "Choice: $choose1"
+                  echo "Boolean: $depend_ENV"
+                  echo "String: $NAME"
                 '''
             }
         }
