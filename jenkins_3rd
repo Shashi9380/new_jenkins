@@ -18,16 +18,16 @@ pipeline {
                  checkout scmGit(branches: [[name: '*/${env.GIT_BRANCH}']], 
                 extensions: [], 
                 userRemoteConfigs: [[credentialsId: '${env.GIT_CREDENTIALS}',
-                 url: 'GIT_URL']])
+                 url: '$GIT_URL']])
 
             }
         }
 
         stage('test'){
             steps{
-                sh ' ${env.ENV1}'
+                sh '${env.ENV1}'
                 sh """
-                 ${env.APP_NAME}
+                 "${env.APP_NAME}"
                 """
                 sh '''
                  $ENV1
