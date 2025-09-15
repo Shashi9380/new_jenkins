@@ -27,7 +27,7 @@ pipeline{
         }
         stage('normal'){
             steps{
-                sh 'sleep10'
+                sh 'sleep 10'
             }
         }
     }
