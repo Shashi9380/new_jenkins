@@ -1,9 +1,12 @@
 pipeline{
   agent {
-     label 'master'
+     label 'none'
   }
   stages {
       stage('1st') {
+          agent{
+            label 'master'
+          }
           steps{
             sh "echo 1st"
           }
