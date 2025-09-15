@@ -1,0 +1,32 @@
+pipleine {
+    agent any
+   parameters {
+       choice choices: ['dev', 'preprod', 'prod'], description: 'choose any one', name: 'choose1'
+       booleanParam description: 'please check the Mark', name: 'depend_ENV'
+        string defaultValue: 'none', description: 'please write name', name: 'NAME'
+    }
+    stages{
+        stage('1st') {
+            steps{
+               script{
+                if [[ ${params.choose1} == dev ]]; then 
+                 echo "this is dev "
+                elif [[ ${params.choose1} == prod ]]; then
+                 echo " this is preprod"
+                 else 
+                    echo " this is prod"
+                fi
+               }
+            }
+        }
+        stage('2nd'){
+            steps{
+                sh '''
+                echo $choose1
+                echo $depend_ENV
+                echo $NAME
+                '''
+            }
+        }
+    }
+}
