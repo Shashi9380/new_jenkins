@@ -5,6 +5,19 @@ pipeline{
           steps{
             sh "echo 1st"
           }
+        
+       }
+      stage('1st') {
+          steps{
+            sh "echo 1st"
+          }
+        
+       }
+      stage('1st') {
+          steps{
+            sh "echo 1st"
+          }
+        
        }
     }
 }
