@@ -38,5 +38,12 @@ pipeline {
                 '''
             }
         }
+        stage('script_test'){
+            steps{
+                script{
+                    echo "${env.ENV1}"
+                }
+            }
+        }
     }
 }
