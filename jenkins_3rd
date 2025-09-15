@@ -15,10 +15,10 @@ pipeline {
     stages{
         stage('checkout') {
             steps{
-                 checkout scmGit(branches: [[name: '*/${env.GIT_BRANCH}']], 
+                 checkout scmGit(branches: [[name: "*/${env.GIT_BRANCH}"]], 
                 extensions: [], 
-                userRemoteConfigs: [[credentialsId: '${env.GIT_CREDENTIALS}',
-                 url: '$GIT_URL']])
+                userRemoteConfigs: [[credentialsId: "${env.GIT_CREDENTIALS}",
+                 url: "$GIT_URL"]])
 
             }
         }
