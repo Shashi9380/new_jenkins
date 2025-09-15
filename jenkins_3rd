@@ -6,10 +6,10 @@ pipeline {
         daysToKeepStr: '', numToKeepStr: '5')
     }
     environment {
-        ENV1= prod
-        APP_NAME= frontend
-        GIT_BRANCH= main
-        GIT_CREDENTIALS= 'Shashi-ubuntu-ec2-pem-key'
+        ENV1 = 'prod'
+        APP_NAME = 'frontend'
+        GIT_BRANCH = 'main'
+        GIT_CREDENTIALS = 'Shashi-ubuntu-ec2-pem-key'
         GIT_URL= 'https://github.com/Shashi9380/python_pracctice.git'
     }
     stages{
