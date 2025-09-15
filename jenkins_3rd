@@ -25,16 +25,16 @@ pipeline {
 
         stage('test'){
             steps{
-                sh '${env.ENV1}'
+                sh ' echo ${env.ENV1}  '
                 sh """
-                 "${env.APP_NAME}"
+                 echo ${env.APP_NAME}
                 """
                 sh '''
-                 $ENV1
-                 $APP_NAME
-                 $GIT_BRANCH
-                 $GIT_CREDENTIALS
-                 $GIT_UR
+                 echo $ENV1
+                 echo $APP_NAME
+                 echo $GIT_BRANCH
+                 echo $GIT_CREDENTIALS
+                 echo $GIT_UR
                 '''
             }
         }
