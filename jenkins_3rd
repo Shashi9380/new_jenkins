@@ -5,7 +5,7 @@ pipeline {
         , artifactNumToKeepStr: '', 
         daysToKeepStr: '', numToKeepStr: '5')
     }
-    Environment {
+    environment {
         ENV= prod
         APP_NAME= frontend
         GIT_BRANCH= main
