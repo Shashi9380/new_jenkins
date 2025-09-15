@@ -28,7 +28,7 @@ pipeline {
                 }
                  stage('parallel_2nd'){
                     steps{
-                         echo 'file2'
+                         exit '1'
                     }
                 }
             }
