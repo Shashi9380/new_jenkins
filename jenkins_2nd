@@ -19,5 +19,27 @@ pipeline {
               '''
             }
         }
+        stage('parallel') {
+            parallel {
+                stage(){
+                    steps{
+                      echo 'file1'
+                    }
+                }
+                 stage(){
+                    steps{
+                         echo 'file2'
+                    }
+                }
+            }
+        }
+            stage('1st') {
+            steps {
+              sh '''
+              ls -lrt
+              pwd
+              '''
+            }
+        }
     }
 }
