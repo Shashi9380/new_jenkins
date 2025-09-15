@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+    options {
+        buildDiscarder logRotator(artifactDaysToKeepStr: ''
+        , artifactNumToKeepStr: '', 
+        daysToKeepStr: '', numToKeepStr: '5')
+    }
+    Environment {
+        ENV= prod
+        APP_NAME= frontend
+        GIT_BRANCH= main
+        GIT_CREDENTIALS= 'Shashi-ubuntu-ec2-pem-key'
+        GIT_URL= 'https://github.com/Shashi9380/python_pracctice.git'
+    }
+    stages{
+        stage('checkout') {
+            steps{
+                 checkout scmGit(branches: [[name: '${env.GIT_BRANCH}']], 
+                extensions: [], 
+                userRemoteConfigs: [[credentialsId: '${env.GIT_CREDENTIALS}',
+                 url: 'GIT_URL']])
+
+            }
+        }
+
+        stage(){
+            steps{
+                sh ' ${env.ENV}'
+                sh """
+                 ${env.APP_NAME}
+                """
+                sh '''
+                 $ENV
+                 $APP_NAME
+                 $GIT_BRANCH
+                 $GIT_CREDENTIALS
+                 $GIT_UR
+                '''
+            }
+        }
+    }
+}
